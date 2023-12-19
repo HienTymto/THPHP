@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION)) session_start();
+include "classes/User.class.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,12 +39,20 @@
             <button class="btn btn-outline-success" type="submit">Tìm</button>
 
       </div>
+      <?php 
+      if (isset($_SESSION['user'])) {
+       ?>
+       <div class="nav-item">
+      <a class="btn btn-outline-success me-2" href="dashboard.php" type="button">Dashboard</a>
+    </div>
+       <?php } else{ ?>
       <div class="nav-item">
       <a class="btn btn-outline-success me-2" href="login.php" type="button">Đăng nhập</a>
     </div>
       <div class="nav-item">
       <a class="btn btn-outline-success me-2" href="register.php" type="button">Đăng ký</a>
     </div>
+    <?php } ?>
     </div>
   </nav>
 </body>

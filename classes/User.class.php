@@ -7,32 +7,6 @@ class User extends Db
 		$arr =  array(":email" => $email);
 		return $this->exeNoneQuery($sql, $arr);
 	}
-
-	public function getById($email, $pass)
-	{
-		$sql = "select user.* 
-			from user
-			where  user.email=:email ";
-		$arr = array(":email" => $email , ":pass"=> $pass);
-		$data = $this->exeQuery($sql, $arr);
-		if (Count($data) > 0) return $data[0];
-		else return array();
-	}
-
-	public function getAll()
-	{
-		return $this->exeQuery("select * from user");
-	}
-
-	public function saveEdit()
-	{
-		$id = Utils::postIndex("email", "");
-		$name = Utils::postIndex("ten", "");
-		if ($id == "" || $name == "") return 0; //Error
-		$sql = "update user set ten=:name where email=:id ";
-		$arr = array(":name" => $name, ":id" => $id);
-		return $this->exeNoneQuery($sql, $arr);
-	}
 	function register_user(string $email, string $ten, string $pass, string $diachi)
 	{
 		$sql = 'INSERT INTO user( email, pass, ten, diachi)

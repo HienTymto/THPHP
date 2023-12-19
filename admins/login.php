@@ -1,20 +1,20 @@
 <?php
-include "config/config.php";
+include "../config/config.php";
 if (!isset($_SESSION)) session_start();
-include "classes/Db.class.php";
-include "classes/User.class.php";
+include ("../classes/Db.class.php");
+include("../classes/Admin.class.php");
 $mess = "";
 if (isset($_POST["login"])) {
-    $us = new User();
-    $email = $_POST["email"];
+    $ad = new Admin();
+    $username = $_POST["username"];
     $pass = $_POST["pass"];
-    $_SESSION["email"] = $email;
-    if ($email == "" || $pass == "") {
+    if ($username == "" || $pass == "") {
         $mess = "Sai thông tin đăng nhập!";
     } else {
-        $result = $us->login_user($email,$pass);
+        $result = $ad->login($username,$pass);
         if ($result) {
-            $_SESSION["user"] = $result;
+            $_SESSION["username"] = $username;
+			$_SESSION["admin_login"] =1;
             header("Location: index.php");
             exit;
         } else {
@@ -40,7 +40,8 @@ if (isset($_POST["login"])) {
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/style.css" />
-    
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    ntegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         #intro {
             height: 100vh;
@@ -70,7 +71,7 @@ if (isset($_POST["login"])) {
                                 <p class="fs-1">Đăng nhập</p>
                             </div>
                             <div class="form-outline mb-4">
-                                <input name="email" type="email" id="form1Example1" class="form-control" />
+                                <input name="username" id="form1Example1" class="form-control" />
                                 <label class="form-label" for="form1Example1">Email </label>
                             </div>
 
@@ -123,4 +124,12 @@ if (isset($_POST["login"])) {
     window.history.replaceState(null, null, window.location.href);
   }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+  integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
