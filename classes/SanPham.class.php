@@ -7,7 +7,11 @@ class SanPham extends Db {
 		$sql="select masp, tensp, anh from sanpham order by rand() limit 0, $n ";
 		return $this->exeQuery($sql);	
 	}
-	
+	public function getSP()
+	{
+		$sql= "select * from sanpham";
+		return $this->exeQuery($sql);
+	}
 	
 	public function delete($masp)
 	{
@@ -15,7 +19,21 @@ class SanPham extends Db {
 		$arr =  Array(":masp"=>$masp);
 		return $this->exeNoneQuery($sql, $arr);	
 	}
-	
+	public function addSP($masp, $tensp, $mota, $gia, $soluong, $maloai, $maxx)
+{
+    $sql = "INSERT INTO sanpham (masp, tensp, mota, gia, soluong, maloai, maxx) VALUES (:masp, :tensp, :mota, :gia, :soluong, :maloai, :maxx)";
+    $arr = array(
+		":masp" => $masp,
+        ":tensp" => $tensp,
+        ":mota" => $mota,
+        ":gia" => $gia,
+        ":soluong" => $soluong,
+        ":maloai" => $maloai,
+        ":maxx" => $maxx
+    );
+
+    return $this->exeNoneQuery($sql, $arr);
+}
 	public function getDetail($masp)
 	{
 		$sql="select sanpham.*, tenloai, tenxx 

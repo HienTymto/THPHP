@@ -1,4 +1,4 @@
-<div class="left-sidebar bg-dark">
+<div class="left-sidebar bg-success">
 <h3>Admin Panel</h3>
 <ul class="nav flex-column collapsible mt-4">
 
@@ -15,8 +15,8 @@
 
     <ul class="nav flex-column toggle-list">
         <li class="nav-item">
-            <a href="dashboard.php?page=category-list" class="nav-link">
-            <i class="fa fa-list"></i> Phân loại
+            <a href="index.php?page=category-list" class="nav-link">
+            <i class="fa fa-list"></i> Danh sách
             </a>
         </li>
         <li class="nav-item">

@@ -4,6 +4,13 @@ if (!isset($_SESSION["admin_login"]))
 {
 	header("location: login.php");
 }
+include "../config/config.php";
+if (!isset($_SESSION)) session_start();
+include ("../classes/Db.class.php");
+include("../classes/Admin.class.php");
+include("../classes/SanPham.class.php");
+include("../classes/PhanLoai.class.php");
+include("../classes/KieuLoai.class.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,16 +56,16 @@ if (!isset($_SESSION["admin_login"]))
 
            /* Category Navigation */
           case 'category-list':
-              require_once 'views/category/table.php';
+              include 'views/sanpham/danhsach.php';
           break;
 
-          case 'category-form':
-            require_once 'views/category/form.php';
+          case 'category-add':
+            include 'views/sanpham/themsp.php';
           break;
           
           /* Content nvigation*/
           case 'content-list':
-            require_once 'views/content/table.php';
+            include 'views/content/table.php';
           break;
           case 'content-form':
             require_once 'views/content/form.php';
@@ -69,7 +76,7 @@ if (!isset($_SESSION["admin_login"]))
 
           /* Admin Profile*/
           case 'admin-profile-list':
-            require_once 'views/admin-profile/table.php';
+            require_once './views/admin-profile/table.php';
           break;
           case 'admin-profile-form':
             require_once 'views/admin-profile/form.php';
@@ -132,9 +139,11 @@ if (!isset($_SESSION["admin_login"]))
  </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="public/js/sidebar-list.js"></script>
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </html>
