@@ -1,8 +1,6 @@
 <?php
-include "../config/config.php";
 if (!isset($_SESSION)) session_start();
-include ("../classes/Db.class.php");
-include("../classes/Admin.class.php");
+
 
 $ad = new Admin();
 $profile =  $ad->getProfile();

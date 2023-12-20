@@ -11,11 +11,11 @@
 
   <!--- Website content--->
   <li class="nav-item toggle">
-    <a class="nav-link" href="#"><i class="fa fa-laptop"></i>  Website Content</a>
+    <a class="nav-link" href="#"><i class="fa fa-laptop"></i> Nội dung</a>
 
     <ul class="nav flex-column toggle-list">
         <li class="nav-item">
-            <a href="index.php?page=category-list" class="nav-link">
+            <a href="index.php?page=sanpham-list" class="nav-link">
             <i class="fa fa-list"></i> Danh sách
             </a>
         </li>
