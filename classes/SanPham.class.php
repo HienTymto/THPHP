@@ -20,14 +20,15 @@ class SanPham extends Db
 		$arr = array(":masp" => $masp);
 		return $this->exeNoneQuery($sql, $arr);
 	}
-	public function addSP($masp, $tensp, $mota, $gia, $soluong, $maloai, $maxx)
+	public function addSP($tensp, $mota, $gia, $anh, $soluong, $maloai, $maxx)
 	{
-		$sql = "INSERT INTO sanpham (masp, tensp, mota, gia, soluong, maloai, maxx) VALUES (:masp, :tensp, :mota, :gia, :soluong, :maloai, :maxx)";
+		$sql = "INSERT INTO sanpham ( tensp, mota, gia, anh, soluong, maloai, maxx) VALUES ( :tensp, :mota, :gia, :anh, :soluong, :maloai, :maxx)";
 		$arr = array(
-			":masp" => $masp,
+			// ":masp" => $masp,
 			":tensp" => $tensp,
 			":mota" => $mota,
 			":gia" => $gia,
+			":anh" => $anh,
 			":soluong" => $soluong,
 			":maloai" => $maloai,
 			":maxx" => $maxx

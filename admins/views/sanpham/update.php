@@ -1,5 +1,4 @@
 <?php
-ob_start();
 $sp = new SanPham();
 $pl = new PhanLoai();
 $kl = new KieuLoai();
@@ -24,9 +23,9 @@ if (isset($_POST["updatesp"])) {
 
         $result = $sp->updateSP($masp, $tensp, $mota, $gia, $soluong, $maloai, $maxx);
         if ($result) {
-            $mess = "Sửa sản phẩm thành công!";
+           $_SESSION['update'] = "Sửa sản phẩm thành công!";
             unset($_POST["themsp"]);
-           header ('location: index.php?page=sampham-list');
+           header ('location: ./index.php?page=sanpham-list');
         } else {
             $mess = "Sửa sản phẩm thất bại!";
         }
@@ -91,4 +90,3 @@ if (isset($_POST["updatesp"])) {
 
     </form>
 </div>
-<?php ob_end_flush(); ?>

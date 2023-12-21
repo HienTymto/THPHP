@@ -1,12 +1,11 @@
 <?php
+ob_start();
 if (!isset($_SESSION))
   session_start();
 if (!isset($_SESSION["admin_login"])) {
   header("location: login.php");
 }
-include "../config/config.php";
-if (!isset($_SESSION))
-  session_start();
+include ("../config/config.php");
 include("../classes/Db.class.php");
 include("../classes/Admin.class.php");
 include("../classes/SanPham.class.php");
@@ -20,13 +19,14 @@ include("../classes/KieuLoai.class.php");
   <title>PHP Admin Panel</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link href="../admins/jquery/datatables.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="public/css/dashboard.css">
   <link rel="stylesheet" href="public/css/common.css">
   <link rel="stylesheet" href="public/css/navbar.css">
   <link rel="stylesheet" href="public/css/sidebar.css">
+  <script src="../admins/jquery/jquery.js"></script>
 </head>
 
 <body>
@@ -152,5 +152,7 @@ include("../classes/KieuLoai.class.php");
   integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
   integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+  <script src="../admins/jquery/datatables.min.js"></script>
+ 
 </html>
+<?php ob_end_flush(); ?>
