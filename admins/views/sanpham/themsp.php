@@ -20,7 +20,7 @@ if (isset($_POST["themsp"])) {
         $uploadFile = $uploadDir . basename($_FILES['anh']['name']);
         
         if (move_uploaded_file($_FILES['anh']['tmp_name'], $uploadFile)) {
-            $anhPath = '../image/sanpham' . $_FILES['anh']['name'];
+            $anhPath = './image/sanpham' . $_FILES['anh']['name'];
         }
     }
     if ($tensp == "" || $mota == "" || $soluong == "" || $gia == "" || $maloai == "" || $maxx == "") {

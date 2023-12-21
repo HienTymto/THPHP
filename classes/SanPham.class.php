@@ -5,7 +5,7 @@ class SanPham extends Db
 	private $_page_count;
 	public function getRand($n)
 	{
-		$sql = "select masp, tensp, anh from sanpham order by rand() limit 0, $n ";
+		$sql = "select masp, tensp, anh, mota from sanpham order by rand() limit 0, $n ";
 		return $this->exeQuery($sql);
 	}
 	public function getSP()

@@ -120,4 +120,5 @@ if (isset($_POST["register"])) {
     window.history.replaceState(null, null, window.location.href);
   }
 </script>
+
 </html>

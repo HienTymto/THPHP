@@ -12,7 +12,7 @@ if (isset($_POST["login"])) {
     if ($email == "" || $pass == "") {
         $mess = "Sai thông tin đăng nhập!";
     } else {
-        $result = $us->login_user($email,$pass);
+        $result = $us->login_user($email, $pass);
         if ($result) {
             $_SESSION["user"] = $result;
             header("Location: index.php");
@@ -40,7 +40,7 @@ if (isset($_POST["login"])) {
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/style.css" />
-    
+
     <style>
         #intro {
             height: 100vh;
@@ -119,8 +119,9 @@ if (isset($_POST["login"])) {
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 <script>
-  if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-  }
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>
+
 </html>
